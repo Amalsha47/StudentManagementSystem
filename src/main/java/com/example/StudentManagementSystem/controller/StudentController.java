@@ -17,6 +17,12 @@ public class StudentController {
  return new 
 ResponseEntity<Student>(studentService.saveStudent(student), HttpStatus.CREATED);
  }
+ @GetMapping("/yearofenrollment/{YearOfEnrollment}")
+public ResponseEntity<List<Student>> 
+getStudentByYearOfEnrollment(@PathVariable("YearOfEnrollment") int YearOfEnrollment) {
+ List<Student> students = studentService.getStudentByYearOfEnrollment(YearOfEnrollment);
+ return new ResponseEntity<>(students, HttpStatus.OK);
+}
  //GetAll Rest Api
  @GetMapping
  public List<Student> getAllStudent(){
