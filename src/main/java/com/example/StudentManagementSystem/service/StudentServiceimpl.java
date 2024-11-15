@@ -11,6 +11,11 @@ public class StudentServiceimpl implements StudentService {
  private StudentRepository studentRepository;
  //save student in database
  @Override
+ public List<Student> getStudentByYearOfEnrollment(int YearOfEnrollment) {
+ return studentRepository.findByYearOfEnrollment(YearOfEnrollment);
+ }
+
+ @Override
  public Student saveStudent(Student student){
  return studentRepository.save(student);
  }
